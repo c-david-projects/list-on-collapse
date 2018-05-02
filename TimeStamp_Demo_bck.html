@@ -1,0 +1,289 @@
+﻿<html>
+<head>
+    <title>Utente Demo</title>
+    <meta charset="iso-8859-1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+    <style>
+        i {
+    color: #449d44;
+    }
+
+        .modal-content{
+            border:none;
+        }
+
+        .btn-primary{
+            background-color:#449d44;
+
+        }
+
+        .btn-primary:focus {
+    color: #fff;
+    background-color: #449d44!important;
+    border-color: #449d44!important;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table id="table" data-height="460" data-pagination="true" data-search="true">
+            <thead>
+                <tr>
+                    <th data-sortable="true" data-field="numeroProcesso">Nº Processo</th>
+                    <th data-sortable="true" data-field="registadoEm">Registado em</th>
+                    <th data-sortable="true" data-field="nome">Nome</th>
+                    <th data-sortable="true" data-field="dataNascimento">Data Nascimento</th>
+                    <th data-formatter="EditarLinha">  </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content"></div>
+        </div>
+        <div class="modal-dialog">
+            <div class="modal-content"></div>
+        </div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true" class="">X</span><span class="sr-only">Fechar</span>
+
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Alterar Informação do Utente</h4>
+
+                </div>
+                <div class="modal-body">
+
+                    <form class="form-horizontal" id="UserData" action="http://timestampgroup.com/action_page.php" method="put">
+                        <fieldset>
+
+                            <!-- Form Name -->
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">Nº Processo</label>
+                                <div class="col-md-4">
+                                    <input id="numeroProcesso" name="numeroProcesso" type="text" placeholder="placeholder" class="form-control input-md">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">Registado Em</label>
+                                <div class="col-md-4">
+                                    <input id="registadoEm" name="registadoEm" type="text" placeholder="placeholder" class="form-control input-md">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">Nome</label>
+                                <div class="col-md-4">
+                                    <input id="nome" name="nome" type="text" placeholder="placeholder" class="form-control input-md">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">Data Nascimento</label>
+                                <div class="col-md-4">
+                                    <input id="dataNascimento" name="dataNascimento" type="text" placeholder="placeholder" class="form-control input-md">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">Última Actualização</label>
+                                <div class="col-md-4">
+                                    <input id="ultimaAtualizacao" name="ultimaAtualizacao" type="text" placeholder="placeholder" class="form-control input-md">
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">Tipo Identificação</label>
+                                <div class="col-md-4">
+                                    <input id="tipoIdentificacao" name="tipoIdentificacao" type="text" placeholder="placeholder" class="form-control input-md">
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">Nº Documento</label>
+                                <div class="col-md-4">
+                                    <input id="numeroDocumento" name="numeroDocumento" type="text" placeholder="placeholder" class="form-control input-md">
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">Nº Contribuinte</label>
+                                <div class="col-md-4">
+                                    <input id="numeroContribuinte" name="numeroContribuinte" type="text" placeholder="placeholder" class="form-control input-md">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">Género</label>
+                                <div class="col-md-4">
+                                    <input id="genero" name="genero" type="text" placeholder="placeholder" class="form-control input-md">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">Distrito</label>
+                                <div class="col-md-4">
+                                    <input id="distrito" name="distrito" type="text" placeholder="placeholder" class="form-control input-md">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">Nacionalidade</label>
+                                <div class="col-md-4">
+                                    <input id="nacionalidade" name="nacionalidade" type="text" placeholder="placeholder" class="form-control input-md">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">País de origem</label>
+                                <div class="col-md-4">
+                                    <input id="paisOrigem" name="paisOrigem" type="text" placeholder="placeholder" class="form-control input-md">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">Estado civil</label>
+                                <div class="col-md-4">
+                                    <input id="estadoCivil" name="estadoCivil" type="text" placeholder="placeholder" class="form-control input-md">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">Profissão</label>
+                                <div class="col-md-4">
+                                    <input id="profissao" name="profissao" type="text" placeholder="placeholder" class="form-control input-md">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">Situação profissional</label>
+                                <div class="col-md-4">
+                                    <input id="situacaoProfissionalAtiva" name="situacaoProfissionalAtiva" type="text" placeholder="placeholder" class="form-control input-md">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">Habilitações</label>
+                                <div class="col-md-4">
+                                    <input id="habilitacao" name="habilitacao" type="text" placeholder="placeholder" class="form-control input-md">
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="CancelaAlteracoes">Close</button>
+                    <button type="button" class="btn btn-primary" id="ActualizaUtente">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        //Vars
+        var $table = $('#table');
+        var mydata;
+
+        //Charset Portugues
+        $.ajaxSetup({
+            scriptCharset: "ISO-8859-1",
+            contentType: "application/json; charset=utf-8"
+        });
+
+        //preenche a tabela com o documento JSON
+        $.getJSON("api_utentes_get.json", function (Jsondata) {
+            $(function () {
+                $('#table').bootstrapTable({
+                    data: Jsondata,
+                    detailView: true,
+                    onExpandRow: function (index, row, $detail) {
+                        $('#table').find('.detail-view').each(function () {
+                            if (!$(this).is($detail.parent())) {
+                                $(this).prev().find('.detail-icon').click()
+                            }
+                        })
+                        //$detail.html(row.numeroProcesso)
+                        var DetailHeader = "<tr style='text-align:center;'><th>Última Actualização</th><th>Tipo Identificação</th><th>Nº Documento</th><th>Nº Contribuinte</th><th>Género</th>";
+                        DetailHeader += "<th>Distrito</th><th>Nacionalidade</th><th>País Origem</th><th>Estado Civil</th><th>Profissão</th>";
+                        DetailHeader += "<th>Sit. Profissional</th><th>Habilitações</th></tr>";
+
+                        var DetailRow = "<tr>";
+                        DetailRow += "<td>" + row.ultimaAtualizacao + "</td>";
+                        DetailRow += "<td>" + row.tipoIdentificacao + "</td>";
+                        DetailRow += "<td>" + row.numeroDocumento + "</td>";
+                        DetailRow += "<td>" + row.numeroContribuinte + "</td>";
+                        DetailRow += "<td>" + row.genero + "</td>";
+                        DetailRow += "<td>" + row.distrito + "</td>";
+                        DetailRow += "<td>" + row.nacionalidade + "</td>";
+                        DetailRow += "<td>" + row.paisOrigem + "</td>";
+                        DetailRow += "<td>" + row.estadoCivil + "</td>";
+                        DetailRow += "<td>" + row.profissao + "</td>";
+                        DetailRow += "<td>" + row.situacaoProfissionalAtiva + "</td>";
+                        DetailRow += "<td>" + row.habilitacao + "</td>";
+                        DetailRow += "</tr>";
+
+                        $detail.html("<table style='padding:5 5 5 5;text-align:center;font-size:12px;'>" + DetailHeader+DetailRow+"</table>")
+                    }
+                });
+
+            });
+        });
+    });
+
+    //Adiciona o botão editar a cada linha da tabela
+    function EditarLinha(value, row, index, field) {
+        return '<button class="open-edituser btn btn-success" data-toggle="modal" data-id="' + index + '"data-target="#myModal"> <i class="fa fa-pencil" aria-hidden="true"></i> Alterar</button>';
+    }
+
+    //Passa o valor da linha a editar para o form
+    $(document).on("click", ".open-edituser", function () {
+        var RowID = $(this).data('id');
+        tableRow = $("#table").bootstrapTable('getOptions').data[RowID];
+        // Preenche o form
+        $('#numeroProcesso').val(tableRow.numeroProcesso);
+        $('#registadoEm').val(tableRow.registadoEm);
+        $('#ultimaAtualizacao').val(tableRow.ultimaAtualizacao);
+        $('#tipoIdentificacao').val(tableRow.tipoIdentificacao);
+        $('#numeroDocumento').val(tableRow.numeroDocumento);
+        $('#numeroContribuinte').val(tableRow.numeroContribuinte);
+        $('#nome').val(tableRow.nome);
+        $('#genero').val(tableRow.genero);
+        $('#dataNascimento').val(tableRow.dataNascimento);
+        $('#distrito').val(tableRow.distrito);
+        $('#nacionalidade').val(tableRow.nacionalidade);
+        $('#paisOrigem').val(tableRow.paisOrigem);
+        $('#estadoCivil').val(tableRow.estadoCivil);
+        $('#profissao').val(tableRow.profissao);
+        $('#situacaoProfissionalAtiva').val(tableRow.situacaoProfissionalAtiva);
+        $('#habilitacao').val(tableRow.habilitacao);
+    });
+
+    // Envia a informação
+    $("#ActualizaUtente").click(function () {
+        $('#UserData').submit();
+    });
+
+</script>
